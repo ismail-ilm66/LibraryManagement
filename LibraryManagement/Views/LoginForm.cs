@@ -79,23 +79,32 @@ namespace LibraryManagement.Views
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string membershipId = txtMembershipId.Text;
-            string password = txtPassword.Text;
-
-            var member = _memberController.Login(membershipId, password);
-
-            if (member != null)
+            try
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DashboardForm dashboard = new DashboardForm();
-                dashboard.Show();
+                string membershipId = txtMembershipId.Text;
+                string password = txtPassword.Text;
+
+                var member = _memberController.Login(membershipId, password);
+
+                if (member.Role == "Staff")
+                {
+                    StaffDashboardForm staffDashboard = new StaffDashboardForm(member);
+                    staffDashboard.Show();
+                }
+                else if (member.Role == "Member")
+                {
+                    MemberDashboardForm memberDashboard = new MemberDashboardForm(member);
+                    memberDashboard.Show();
+                }
+
                 this.Hide();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid credentials. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Login failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void BtnExit_Click(object sender, EventArgs e)
         {

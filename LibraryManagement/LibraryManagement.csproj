@@ -179,6 +179,10 @@
     <Compile Include="Migrations\20250120165738_InitialCreate.Designer.cs">
       <DependentUpon>20250120165738_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20250120172240_AddRoleToMembers.cs" />
+    <Compile Include="Migrations\20250120172240_AddRoleToMembers.Designer.cs">
+      <DependentUpon>20250120172240_AddRoleToMembers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LibraryDbContextModelSnapshot.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BorrowingRecord.cs" />
@@ -193,9 +197,7 @@
     <Compile Include="Views\BorrowingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DashboardForm.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,7 +207,13 @@
     <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\MemberDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\MemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StaffDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">

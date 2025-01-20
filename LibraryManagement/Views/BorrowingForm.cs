@@ -13,12 +13,30 @@ namespace LibraryManagement.Views
         private Button btnBorrow, btnReturn, btnClear;
         private DataGridView dataGridBorrowing;
         private BorrowingController _borrowingController;
+        private Member _currentUser;
 
-        public BorrowingForm()
+
+        public BorrowingForm(Member currentUser)
         {
+            _currentUser = currentUser;
             _borrowingController = new BorrowingController();
             InitializeComponents();
             LoadBorrowingRecords();
+            ApplyRoleBasedAccess();
+
+        }
+        private void ApplyRoleBasedAccess()
+        {
+            if (_currentUser.Role == "Member")
+            {
+                btnBorrow.Enabled = true;
+                btnReturn.Enabled = true;
+            }
+            else if (_currentUser.Role == "Staff")
+            {
+                btnBorrow.Enabled = false;
+                btnReturn.Enabled = false;
+            }
         }
 
         private void InitializeComponents()

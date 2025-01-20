@@ -22,8 +22,16 @@ namespace LibraryManagement.Controllers
 
         public Member Login(string membershipId, string password)
         {
-            return _context.Members.FirstOrDefault(m => m.MembershipID == membershipId && m.Password == password);
+            var member = _context.Members.FirstOrDefault(m => m.MembershipID == membershipId && m.Password == password);
+
+            if (member == null)
+            {
+                throw new Exception("Invalid credentials.");
+            }
+
+            return member;
         }
+
         // Add a new member
         public void AddMember(Member member)
         {

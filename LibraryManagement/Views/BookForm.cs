@@ -13,12 +13,26 @@ namespace LibraryManagement.Views
         private Button btnAdd, btnUpdate, btnDelete, btnClear;
         private DataGridView dataGridBooks;
         private BookController _bookController;
+        private Member _currentUser;
 
-        public BookForm()
+
+
+        public BookForm(Member currentUser)
         {
+            _currentUser = currentUser;
             _bookController = new BookController();
             InitializeComponents();
             LoadBooks();
+            ApplyRoleBasedAccess();
+        }
+        private void ApplyRoleBasedAccess()
+        {
+            if (_currentUser.Role != "Staff")
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void InitializeComponents()
@@ -82,6 +96,8 @@ namespace LibraryManagement.Views
             this.Controls.Add(btnDelete);
             this.Controls.Add(btnClear);
             this.Controls.Add(dataGridBooks);
+
+
         }
 
         private void LoadBooks()

@@ -13,12 +13,26 @@ namespace LibraryManagement.Views
         private Button btnAdd, btnUpdate, btnDelete, btnClear;
         private DataGridView dataGridMembers;
         private MemberController _memberController;
+        private Member _currentUser;
 
-        public MemberForm()
+
+        public MemberForm(Member currentUser)
         {
+            _currentUser = currentUser;
+
             _memberController = new MemberController();
             InitializeComponents();
             LoadMembers();
+            ApplyRoleBasedAccess();
+        }
+        private void ApplyRoleBasedAccess()
+        {
+            if (_currentUser.Role != "Staff")
+            {
+                btnAdd.Enabled = false;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }
         }
 
         private void InitializeComponents()
