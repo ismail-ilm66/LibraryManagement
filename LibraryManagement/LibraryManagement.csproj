@@ -213,7 +213,13 @@
     <Compile Include="Views\MemberForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\ReturnBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\StaffDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">

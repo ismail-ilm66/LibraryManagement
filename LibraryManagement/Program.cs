@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagement.Migrations;
 using LibraryManagement.Views;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LibraryManagement
 {
@@ -21,3 +23,5 @@ namespace LibraryManagement
         }
     }
 }
+//Add - Migration InitialCreate
+
