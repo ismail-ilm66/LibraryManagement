@@ -21,7 +21,7 @@
 //            //ApplyRoleBasedAccess();
 
 //        }
-    
+
 
 //        private void InitializeComponents()
 //        {
@@ -101,4 +101,41 @@
 //            loginForm.Show();
 //        }
 //    }
+//}
+//using System.Drawing;
+//using System.Windows.Forms;
+//using System;
+
+//private ComboBox cmbRole;
+
+//private void InitializeComponents()
+//{
+//    // Create ComboBox instance
+//    cmbRole = new ComboBox();
+
+//    // Set properties
+//    cmbRole.Location = new Point(150, 50);  // Position on the form
+//    cmbRole.Size = new Size(200, 25);       // Size of the ComboBox
+//    cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;  // Make it a dropdown list
+
+//    // Add items to ComboBox
+//    cmbRole.Items.Add("Staff");
+//    cmbRole.Items.Add("Member");
+//    cmbRole.Items.Add("Admin");
+
+//    // Set default selected index
+//    cmbRole.SelectedIndex = 0;
+
+//    // Add event handler (optional)
+//    cmbRole.SelectedIndexChanged += CmbRole_SelectedIndexChanged;
+
+//    // Add ComboBox to the form
+//    this.Controls.Add(cmbRole);
+//}
+
+//// Event handler when selection changes
+//private void CmbRole_SelectedIndexChanged(object sender, EventArgs e)
+//{
+//    string selectedRole = cmbRole.SelectedItem.ToString();
+//    MessageBox.Show($"Selected Role: {selectedRole}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 //}

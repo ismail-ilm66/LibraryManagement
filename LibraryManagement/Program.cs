@@ -25,3 +25,7 @@ namespace LibraryManagement
 }
 //Add - Migration InitialCreate
 
+//Update - Database
+//Add - Migration AddDateOfBirthToMembers
+ //Remove - Migration
+
